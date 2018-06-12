@@ -1,9 +1,9 @@
 import React from "react";
 import "./Scoreboard.css";
 
-const Scoreboard = () => (
+const Scoreboard = props => (
   <footer className="footer">
-    <span>Score: </span>
+    <span>Score: {props.score} </span>
   </footer>
 );
 

@@ -11,15 +11,36 @@ class App extends Component {
 
   state = {
     players: players,
-    score: 0
+    score: 0,
+    clickedPlayers: []
   };
+  
 
-  removePlayer = id => {
-    // Filter this.state.friends for friends with an id not equal to the id being removed
-    const players = this.state.players.filter(player => player.id !== id);
-    // Set this.state.friends equal to the new friends array
-    this.setState({ players });
-  };
+  shufflePlayers = (players) => {
+    console.log("working");
+  }
+  // clickPlayer = id => {
+  //   // Filter this.state.players for players with an id not equal to the id being removed
+  //   const players = this.state.players.filter(player => player.id !== id);
+
+  //   // Set this.state.friends equal to the new friends array
+  //   this.setState ({  
+  //     players:players, 
+  //     score: this.state.score + 1
+  //    });
+   clickPlayer = id => {
+     if (this.state.clickedPlayers.includes(id)) {
+       this.setState({score:0, clickedPlayers:[]})
+     } else {
+       this.setState ({clickedPlayers: [...this.state.clickedPlayers, id]})
+       this.setState ({score: this.state.score + 1})
+       
+     }
+   }
+    //   // Filter this.state.players for players with an id not equal to the id being removed
+    //   const players = this.state.players.filter(player => player.id !== id);
+   
+  
 
 
 
@@ -30,11 +51,11 @@ class App extends Component {
       <Header />
       
       
-      <Scoreboard/>
+      <Scoreboard score={this.state.score}/>
       <Wrapper>
         {this.state.players.map(player => (
         <PlayerCard 
-          removePlayer={this.removePlayer}
+          clickPlayer={this.clickPlayer}
           id={player.id}
           key={player.id}
           name={player.name}
