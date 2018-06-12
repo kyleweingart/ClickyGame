@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import PlayerCard from "./components/PlayerCard";
 import Wrapper from "./components/Wrapper";
-import Header from "./components/Header"
+import Header from "./components/Header";
+import Scoreboard from "./components/Scoreboard";
 import players from "./players.json";
-// import './App.css';
+
 
 
 class App extends Component {
 
   state = {
-    players
+    players: players,
+    score: 0
   };
 
   removePlayer = id => {
     // Filter this.state.friends for friends with an id not equal to the id being removed
-    const friends = this.state.friends.filter(friend => friend.id !== id);
+    const players = this.state.players.filter(player => player.id !== id);
     // Set this.state.friends equal to the new friends array
-    this.setState({ friends });
+    this.setState({ players });
   };
 
 
@@ -28,7 +30,7 @@ class App extends Component {
       <Header />
       
       
-
+      <Scoreboard/>
       <Wrapper>
         {this.state.players.map(player => (
         <PlayerCard 
@@ -41,6 +43,7 @@ class App extends Component {
 
       ))}
       </Wrapper>
+      
       </div>
     
     )
