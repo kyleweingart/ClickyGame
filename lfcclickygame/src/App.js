@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PlayerCard from "./components/PlayerCard";
 import Wrapper from "./components/Wrapper";
+import Header from "./components/Header"
 import players from "./players.json";
-import logo from './liverbird.png';
-import './App.css';
+// import './App.css';
 
 
 class App extends Component {
@@ -23,15 +23,11 @@ class App extends Component {
 
   render() {
     return (
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <h1 className="App-title">Liverpool F.C. Clicky Game</h1>
-      //   </header>
-      //   <p className="App-intro">
-      //     To get started click an image below. 
-      //   </p>
-      // </div>
+      <div>
+      
+      <Header />
+      
+      
 
       <Wrapper>
         {this.state.players.map(player => (
@@ -45,6 +41,7 @@ class App extends Component {
 
       ))}
       </Wrapper>
+      </div>
     
     )
   }
