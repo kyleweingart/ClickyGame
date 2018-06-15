@@ -3,7 +3,9 @@ import "./Scoreboard.css";
 
 const Scoreboard = props => (
   <footer className="footer">
-    <span>Score: {props.score} </span>
+    
+    <p className="message">{props.message} </p>
+    <p className="score">Score: {props.score} </p>
   </footer>
 );
 

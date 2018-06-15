@@ -9,7 +9,7 @@ const Header = () => (
             <h1 className="App-title">Liverpool F.C. Clicky Game</h1>
             </header>
             <p className="App-intro">
-            To get started click an image below. 
+            To get started click a Liverpool player below. 
             </p>
         </div> 
 );

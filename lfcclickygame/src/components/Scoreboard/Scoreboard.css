@@ -4,14 +4,26 @@
   position: relative;
   border-top: 2px solid rgb(72, 72, 72);
   border-bottom: 2px solid rgb(40, 40, 40);
+  text-align: center
 }
 
-.footer span {
-  position: absolute;
+.score {
+  /* position: absolute; */
   bottom: 1;
   left: 0;
   right: 0;
-  padding: 20px;
+  padding: 0px;
   /* background: #E5E5E5; */
   font-size: 2em;
+}
+.message {
+  /* position: absolute; */
+  /* bottom: 1; */
+  /* left:34%; */
+  /* right: 0; */
+  padding-top: 20px;
+
+  /* background: #E5E5E5; */
+  font-size: 1em;
+  font-style: italic;
 }

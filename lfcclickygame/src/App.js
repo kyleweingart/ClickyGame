@@ -9,40 +9,33 @@ import players from "./players.json";
 
 class App extends Component {
 
+  // set initial state
   state = {
     players: players,
     score: 0,
-    clickedPlayers: []
+    clickedPlayers: [],
+    message: "Don't click on the same player more than once."
   };
   
-
-  shufflePlayers = (players) => {
-    console.log("working");
-  }
-  // clickPlayer = id => {
-  //   // Filter this.state.players for players with an id not equal to the id being removed
-  //   const players = this.state.players.filter(player => player.id !== id);
-
-  //   // Set this.state.friends equal to the new friends array
-  //   this.setState ({  
-  //     players:players, 
-  //     score: this.state.score + 1
-  //    });
+  
+  
+  //  click player function - resets state based on players picked
    clickPlayer = id => {
      if (this.state.clickedPlayers.includes(id)) {
        this.setState({score:0, clickedPlayers:[]})
+       this.setState({message: "You lose. Start again."})
      } else {
+       players.sort(function(a, b){return 0.5 - Math.random()});
        this.setState ({clickedPlayers: [...this.state.clickedPlayers, id]})
        this.setState ({score: this.state.score + 1})
+       this.setState ({message: "Well played..."})
+       this.setState(players)
+
        
      }
    }
-    //   // Filter this.state.players for players with an id not equal to the id being removed
-    //   const players = this.state.players.filter(player => player.id !== id);
+    
    
-  
-
-
 
   render() {
     return (
@@ -51,7 +44,7 @@ class App extends Component {
       <Header />
       
       
-      <Scoreboard score={this.state.score}/>
+      <Scoreboard score={this.state.score} message={this.state.message}/>
       <Wrapper>
         {this.state.players.map(player => (
         <PlayerCard 
